@@ -20,8 +20,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.squareup.picasso.Picasso;
 
 import org.krishan.weatherapp.R;
-import org.krishan.weatherapp.rv.daily.WeatherAdapter;
-import org.krishan.weatherapp.rv.hourly.HourlyWeatherAdapter;
+import org.krishan.weatherapp.ui.rv.daily.WeatherAdapter;
+import org.krishan.weatherapp.ui.rv.hourly.HourlyWeatherAdapter;
 import org.krishan.weatherapp.utils.DrawableResources;
 import org.krishan.weatherapp.utils.StringConverterImpl;
 import org.krishan.weatherapp.viewmodel.WeatherViewModel;
@@ -49,25 +49,29 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         setContentView(R.layout.activity_main);
         findViewByIds();
         viewModel = ViewModelProviders.of(this).get(WeatherViewModel.class);
+        refreshLayout.setOnRefreshListener(this);
         if (checkIfPermissionNotGranted()) {
             askForPermission();
         } else {
-            //TODO: if the GPS is off, prompt dialogue to turn it on{
-
-            //TODO: getLastLocation() --> Make Network Call
-            // }
             getLastLocation();
         }
-        dailyAdapter = new WeatherAdapter(new ArrayList<>());
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        weatherRecyclerView.setAdapter(dailyAdapter);
-        weatherRecyclerView.setLayoutManager(layoutManager);
+        setUpDailyRecyclerView();
+        setUpHourlyRecyclerView();
 
+    }
+
+    private void setUpHourlyRecyclerView() {
         hourlyAdapter = new HourlyWeatherAdapter(new ArrayList<>());
         LinearLayoutManager hourlyLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
         hourlyRecyclerView.setAdapter(hourlyAdapter);
         hourlyRecyclerView.setLayoutManager(hourlyLayoutManager);
+    }
 
+    private void setUpDailyRecyclerView() {
+        dailyAdapter = new WeatherAdapter(new ArrayList<>());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        weatherRecyclerView.setAdapter(dailyAdapter);
+        weatherRecyclerView.setLayoutManager(layoutManager);
     }
 
     private void findViewByIds() {
@@ -86,8 +90,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
     @Override
     public void onRefresh() {
-        //TODO:
-        // renderViews()
+        getLastLocation();
         refreshLayout.setRefreshing(false);
     }
 
@@ -118,8 +121,8 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                                     //TODO: renderViews()
                                     progressBar.setVisibility(View.GONE);
                                     String temp = StringConverterImpl.formatDoubleToStringDigit(forecastModel.getCurrently().getTemperature());
-                                    String summaryAndDate = forecastModel.getCurrently().getSummary() + "\n"
-                                            + StringConverterImpl.convertTimeStampToDay(forecastModel.getCurrently().getTime()) + " " +
+                                    String summaryAndDate = forecastModel.getCurrently().getSummary() + "\n" +
+                                            StringConverterImpl.convertTimeStampToDay(forecastModel.getCurrently().getTime()) + " " +
                                             StringConverterImpl.convertTimeStampToDate(forecastModel.getCurrently().getTime()) + "\n" +
                                             StringConverterImpl.convertTimeStampToTime(forecastModel.getCurrently().getTime());
                                     String tempMaxMin = StringConverterImpl.formatDoubleToStringDigit(forecastModel.getDaily().getData().get(0).getTemperatureHigh()) + "\n" +
@@ -140,8 +143,5 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         });
     }
 }
-//TODO: observeLocation from ViewModel
-
-//TODO: observeRemoteForecast from ViewModel
 
 //TODO: LocalForecast (when Room DB is implemented) from ViewModel

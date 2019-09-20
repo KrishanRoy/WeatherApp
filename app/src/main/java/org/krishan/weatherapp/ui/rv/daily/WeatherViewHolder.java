@@ -1,4 +1,4 @@
-package org.krishan.weatherapp.rv.daily;
+package org.krishan.weatherapp.ui.rv.daily;
 
 import android.view.View;
 import android.widget.ImageView;

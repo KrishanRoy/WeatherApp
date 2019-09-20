@@ -1,23 +1,15 @@
 package org.krishan.weatherapp.ui;
 
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
-import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.maps.model.LatLng;
 
 import org.krishan.weatherapp.R;
-import org.krishan.weatherapp.ui.MainActivity;
-
-import static com.google.android.gms.location.LocationServices.getFusedLocationProviderClient;
 
 public class SplashActivity extends AppCompatActivity {
     public static final String TAG = "SplashActivity";
