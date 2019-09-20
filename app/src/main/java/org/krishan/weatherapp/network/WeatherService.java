@@ -1,5 +1,8 @@
 package org.krishan.weatherapp.network;
 
+import org.krishan.weatherapp.model.ForecastModel;
+
+import io.reactivex.Single;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
