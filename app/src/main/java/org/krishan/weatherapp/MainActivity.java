@@ -15,7 +15,9 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.maps.model.LatLng;
+import com.squareup.picasso.Picasso;
 
+import org.krishan.weatherapp.utils.DrawableResources;
 import org.krishan.weatherapp.utils.StringConverterImpl;
 import org.krishan.weatherapp.viewmodel.WeatherViewModel;
 
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     private SwipeRefreshLayout refreshLayout;
     private double latitude, longitude;
     private StringConverterImpl stringConverter = new StringConverterImpl();
+    private DrawableResources drawableResources = new DrawableResources();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +109,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                                     summaryTextView.setText(summaryAndDate);
                                     currentCityTextView.setText(stringConverter.formatTimeZoneToCity(forecastModel.getTimezone()));
                                     maxMinTextView.setText(tempMaxMin);
+                                    Picasso.get().load(drawableResources.getIcon(forecastModel.getCurrently().getIcon())).into(currentTempIcon);
                                     Log.d(TAG, "getLocationAndCallNetworkDaily: " + forecastModel.getDaily().getData().get(0).getTemperatureHigh());
                                 });
                             }
