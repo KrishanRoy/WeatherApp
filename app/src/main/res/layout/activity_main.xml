@@ -49,7 +49,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:textSize="15sp"
-                tools:text="Address" />
+                tools:text="Address"
+                android:fontFamily="sans-serif-thin"/>
 
             <TextView
                 android:id="@+id/current_temp_textView"
@@ -59,6 +60,7 @@
                 android:layout_marginTop="50dp"
                 android:textSize="70sp"
                 android:textStyle="bold"
+                android:fontFamily="sans-serif-thin"
                 tools:text="now" />
 
             <TextView
@@ -68,7 +70,8 @@
                 android:layout_marginStart="270dp"
                 android:layout_marginTop="50dp"
                 android:textSize="25sp"
-                tools:text="Summary" />
+                tools:text="Summary"
+                android:fontFamily="sans-serif-thin"/>
 
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
