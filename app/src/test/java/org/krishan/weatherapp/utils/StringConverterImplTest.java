@@ -28,62 +28,62 @@ public class StringConverterImplTest {
     @Test
     public void formatTimeZoneToCity_test_given_null_input_returns_World() {
         //Given
-        String actual = null;
+        String input = null;
 
         //expected
         String expected = "World";
 
         //assert
-        Assert.assertEquals(expected, converter.formatTimeZoneToCity(actual));
+        Assert.assertEquals(expected, converter.formatTimeZoneToCity(input));
     }
 
 
     @Test
     public void formatTimeZoneToCity_test_given_empty_string_returns_World() {
         //Given
-        String actual = "";
+        String input = "";
 
         //expected
         String expected = "World";
 
         //assert
-        Assert.assertEquals(expected, converter.formatTimeZoneToCity(actual));
+        Assert.assertEquals(expected, converter.formatTimeZoneToCity(input));
     }
 
     @Test
     public void formatDoubleToStringDigit_test_given_positive_double_returns_String() {
         //Given
-        double actual = 15.12345678;
+        double input = 15.12345678;
 
         //expected
         String expected = "15";
 
         //assert
-        Assert.assertEquals(expected, converter.formatDoubleToStringDigit(actual));
+        Assert.assertEquals(expected, converter.formatDoubleToStringDigit(input));
     }
 
     @Test
     public void formatDoubleToStringDigit_test_given_negative_double_returns_String() {
         //Given
-        double actual = -15.12345678;
+        double input = -15.12345678;
 
         //expected
         String expected = "-15";
 
         //assert
-        Assert.assertEquals(expected, converter.formatDoubleToStringDigit(actual));
+        Assert.assertEquals(expected, converter.formatDoubleToStringDigit(input));
     }
 
     @Test
     public void formatDoubleToStringDigit_test_given_zero_double_returns_String() {
         //Given
-        double actual = 0.00;
+        double input = 0.00;
 
         //expected
         String expected = "0";
 
         //assert
-        Assert.assertEquals(expected, converter.formatDoubleToStringDigit(actual));
+        Assert.assertEquals(expected, converter.formatDoubleToStringDigit(input));
     }
 
     @After

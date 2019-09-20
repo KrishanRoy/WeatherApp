@@ -5,4 +5,5 @@
     <string name="ok">Ok</string>
     <string name="splash_button">Continue</string>
     <string name="farenheit_text">F</string>
+    <string name="check_weather_splash">Check Weather!</string>
 </resources>

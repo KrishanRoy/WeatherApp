@@ -1,4 +1,4 @@
-package org.krishan.weatherapp;
+package org.krishan.weatherapp.ui;
 
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -19,6 +19,7 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.maps.model.LatLng;
 import com.squareup.picasso.Picasso;
 
+import org.krishan.weatherapp.R;
 import org.krishan.weatherapp.rv.daily.WeatherAdapter;
 import org.krishan.weatherapp.rv.hourly.HourlyWeatherAdapter;
 import org.krishan.weatherapp.utils.DrawableResources;
