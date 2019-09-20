@@ -21,4 +21,4 @@ face problems, please check your device's location services.
 * Have a faster UI
 ## Layout Screenshots
  
-<img src="https://user-images.githubusercontent.com/44322211/56062104-5f020e00-5d39-11e9-86aa-7ce783514939.jpg" width="300">
+<img src="https://user-images.githubusercontent.com/44322211/65361211-c10c4c80-dbd0-11e9-9d34-388272608bdd.jpg" width="300">
