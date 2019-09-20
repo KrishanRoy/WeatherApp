@@ -1,16 +1,19 @@
 package org.krishan.weatherapp.model;
 
+
 public class DailyData {
     private int time;
     private double temperatureHigh;
     private double temperatureLow;
     private String icon;
+    private String summary;
 
-    public DailyData(int time, double temperatureHigh, double temperatureLow, String icon) {
+    public DailyData(int time, double temperatureHigh, double temperatureLow, String icon, String summary) {
         this.time = time;
         this.temperatureHigh = temperatureHigh;
         this.temperatureLow = temperatureLow;
         this.icon = icon;
+        this.summary = summary;
     }
 
     public int getTime() {
@@ -27,5 +30,9 @@ public class DailyData {
 
     public String getIcon() {
         return icon;
+    }
+
+    public String getSummary() {
+        return summary;
     }
 }

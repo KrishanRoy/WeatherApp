@@ -1,4 +1,4 @@
-package org.krishan.weatherapp.rv;
+package org.krishan.weatherapp.rv.daily;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -22,7 +22,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherViewHolder> {
     @Override
     public WeatherViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new WeatherViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.daily_weather_itemview, parent, false));
+                .inflate(R.layout.daily_weather_item_view, parent, false));
     }
 
     @Override
