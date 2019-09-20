@@ -1,5 +1,5 @@
 # WeatherApp
-A simple weather app that uses Dark Sky Api and shows temperature in Fahrenheit scale. It shows current weather as well as hourly forecast and eight day forecast.
+A simple weather app that uses [Dark Sky](https://darksky.net/dev/docs) Api and shows temperature in Fahrenheit scale. It shows current weather as well as hourly forecast and eight day forecast.
 ## To run this app
 Clone the repository. Connect your device to your Pc/Mac. From the Android Studio, run the cloned project through your 
 Android device. Emulator might show some bugs. When you are not using the app, please uninstall since it charges money
@@ -19,3 +19,6 @@ face problems, please check your device's location services.
 ## Future Implementations
 * Temperature in Celcius scale
 * Have a faster UI
+## Layout Screenshots
+ 
+<img src="https://user-images.githubusercontent.com/44322211/56062104-5f020e00-5d39-11e9-86aa-7ce783514939.jpg" width="300">
