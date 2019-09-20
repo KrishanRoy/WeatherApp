@@ -11,15 +11,21 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.maps.model.LatLng;
 import com.squareup.picasso.Picasso;
 
+import org.krishan.weatherapp.rv.daily.WeatherAdapter;
+import org.krishan.weatherapp.rv.hourly.HourlyWeatherAdapter;
 import org.krishan.weatherapp.utils.DrawableResources;
 import org.krishan.weatherapp.utils.StringConverterImpl;
 import org.krishan.weatherapp.viewmodel.WeatherViewModel;
+
+import java.util.ArrayList;
 
 import static com.google.android.gms.location.LocationServices.getFusedLocationProviderClient;
 
@@ -31,8 +37,9 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     private ImageView currentTempIcon;
     private ProgressBar progressBar;
     private SwipeRefreshLayout refreshLayout;
-    private double latitude, longitude;
-    private StringConverterImpl stringConverter = new StringConverterImpl();
+    private RecyclerView weatherRecyclerView, hourlyRecyclerView;
+    private WeatherAdapter dailyAdapter;
+    private HourlyWeatherAdapter hourlyAdapter;
     private DrawableResources drawableResources = new DrawableResources();
 
     @Override
@@ -50,6 +57,16 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             // }
             getLastLocation();
         }
+        dailyAdapter = new WeatherAdapter(new ArrayList<>());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        weatherRecyclerView.setAdapter(dailyAdapter);
+        weatherRecyclerView.setLayoutManager(layoutManager);
+
+        hourlyAdapter = new HourlyWeatherAdapter(new ArrayList<>());
+        LinearLayoutManager hourlyLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+        hourlyRecyclerView.setAdapter(hourlyAdapter);
+        hourlyRecyclerView.setLayoutManager(hourlyLayoutManager);
+
     }
 
     private void findViewByIds() {
@@ -61,6 +78,8 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         currentTempIcon = findViewById(R.id.current_temp_icon_imageView);
         progressBar = findViewById(R.id.main_activity_progress_bar);
         refreshLayout = findViewById(R.id.swipe_refresh);
+        weatherRecyclerView = findViewById(R.id.daily_weather_recycler_view);
+        hourlyRecyclerView = findViewById(R.id.hourly_temp_recycler_view);
     }
 
 
@@ -97,19 +116,20 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                                     Log.d(TAG, "getLastLocation: " + forecastModel.getTimezone());
                                     //TODO: renderViews()
                                     progressBar.setVisibility(View.GONE);
-                                    String temp = stringConverter.formatDoubleToStringDigit(forecastModel.getCurrently().getTemperature());
+                                    String temp = StringConverterImpl.formatDoubleToStringDigit(forecastModel.getCurrently().getTemperature());
                                     String summaryAndDate = forecastModel.getCurrently().getSummary() + "\n"
-                                            + stringConverter.convertTimeStampToDay(forecastModel.getCurrently().getTime()) + " " +
-                                            stringConverter.convertTimeStampToDate(forecastModel.getCurrently().getTime()) + "\n" +
-                                            stringConverter.convertTimeStampToTime(forecastModel.getCurrently().getTime());
-                                    ;
-                                    String tempMaxMin = stringConverter.formatDoubleToStringDigit(forecastModel.getDaily().getData().get(0).getTemperatureHigh()) + "\n" +
-                                            stringConverter.formatDoubleToStringDigit(forecastModel.getDaily().getData().get(0).getTemperatureLow());
+                                            + StringConverterImpl.convertTimeStampToDay(forecastModel.getCurrently().getTime()) + " " +
+                                            StringConverterImpl.convertTimeStampToDate(forecastModel.getCurrently().getTime()) + "\n" +
+                                            StringConverterImpl.convertTimeStampToTime(forecastModel.getCurrently().getTime());
+                                    String tempMaxMin = StringConverterImpl.formatDoubleToStringDigit(forecastModel.getDaily().getData().get(0).getTemperatureHigh()) + "\n" +
+                                            StringConverterImpl.formatDoubleToStringDigit(forecastModel.getDaily().getData().get(0).getTemperatureLow());
                                     temperatureTextView.setText(temp);
                                     summaryTextView.setText(summaryAndDate);
-                                    currentCityTextView.setText(stringConverter.formatTimeZoneToCity(forecastModel.getTimezone()));
+                                    currentCityTextView.setText(StringConverterImpl.formatTimeZoneToCity(forecastModel.getTimezone()));
                                     maxMinTextView.setText(tempMaxMin);
                                     Picasso.get().load(drawableResources.getIcon(forecastModel.getCurrently().getIcon())).into(currentTempIcon);
+                                    dailyAdapter.setData(forecastModel.getDaily().getData());
+                                    hourlyAdapter.setData(forecastModel.getHourly().getData());
                                     Log.d(TAG, "getLocationAndCallNetworkDaily: " + forecastModel.getDaily().getData().get(0).getTemperatureHigh());
                                 });
                             }
