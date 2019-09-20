@@ -7,7 +7,7 @@ import org.krishan.weatherapp.network.WeatherService;
 import io.reactivex.Single;
 import io.reactivex.schedulers.Schedulers;
 
-class WeatherRepositoryImpl implements WeatherRepository {
+public class WeatherRepositoryImpl implements WeatherRepository {
     private WeatherService weatherService = RetrofitSingleton.getInstance().create(WeatherService.class);
 
 
