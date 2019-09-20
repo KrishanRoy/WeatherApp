@@ -1,4 +1,4 @@
-package org.krishan.weatherapp.rv.hourly;
+package org.krishan.weatherapp.ui.rv.hourly;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;

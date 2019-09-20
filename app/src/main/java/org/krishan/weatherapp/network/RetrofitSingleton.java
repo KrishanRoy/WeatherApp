@@ -8,6 +8,7 @@ public class RetrofitSingleton {
     private static final String BASE_URL = "https://api.darksky.net/";
 
     private static Retrofit instance;
+
     public static Retrofit getInstance() {
         if (instance == null) {
             instance = new Retrofit
