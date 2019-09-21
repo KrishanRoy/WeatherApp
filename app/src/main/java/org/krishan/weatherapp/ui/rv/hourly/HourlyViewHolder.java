@@ -15,10 +15,11 @@ import org.krishan.weatherapp.utils.DrawableResources;
 import org.krishan.weatherapp.utils.StringConverterImpl;
 
 public class HourlyViewHolder extends RecyclerView.ViewHolder {
-    private TextView hourTextView, tempTextView;
-    private ImageView iconImageView;
+    private final TextView hourTextView;
+    private final TextView tempTextView;
+    private final ImageView iconImageView;
     private StringConverterImpl stringConverter = new StringConverterImpl();
-    private DrawableResources drawableResources = new DrawableResources();
+    private final DrawableResources drawableResources = new DrawableResources();
 
     public HourlyViewHolder(@NonNull View itemView) {
         super(itemView);

@@ -28,24 +28,21 @@ public class StringConverterImpl {
     public static String convertTimeStampToTime(long time) {
         Calendar cal = Calendar.getInstance(Locale.US);
         cal.setTimeInMillis(time * 1000);
-        String dayAndDate = DateFormat.format("h:mm a", cal).toString(); //should render Fri 09/17 11:26 AM
-        return dayAndDate;
+        return DateFormat.format("h:mm a", cal).toString();
     }
 
 
     public static String convertTimeStampToOneDigitTime(long time) {
         Calendar cal = Calendar.getInstance(Locale.US);
         cal.setTimeInMillis(time * 1000);
-        String dayAndDate = DateFormat.format("h a", cal).toString(); //should render Fri 09/17 11:26 AM
-        return dayAndDate;
+        return DateFormat.format("h a", cal).toString();
     }
 
 
     public static String convertTimeStampToDate(long time) {
         Calendar cal = Calendar.getInstance(Locale.US);
         cal.setTimeInMillis(time * 1000);
-        String dayAndDate = DateFormat.format("M/dd", cal).toString(); //should render Fri 09/17 11:26 AM
-        return dayAndDate;
+        return DateFormat.format("M/dd", cal).toString();
     }
 
 

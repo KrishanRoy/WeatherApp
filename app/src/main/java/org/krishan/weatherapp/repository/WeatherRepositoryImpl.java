@@ -15,8 +15,8 @@ import io.reactivex.Single;
 import io.reactivex.schedulers.Schedulers;
 
 public class WeatherRepositoryImpl implements WeatherRepository {
-    private WeatherService weatherService = RetrofitSingleton.getInstance().create(WeatherService.class);
-    private WeatherDatabase weatherDatabase;
+    private final WeatherService weatherService = RetrofitSingleton.getInstance().create(WeatherService.class);
+    private final WeatherDatabase weatherDatabase;
 
     /**
      * @param application needed to provide context for the Room db

@@ -1,9 +1,9 @@
 package org.krishan.weatherapp.model;
 
 public class HourlyData {
-    private long time;
-    private double temperature;
-    private String icon;
+    private final long time;
+    private final double temperature;
+    private final String icon;
 
     public HourlyData(long time, double temperature, String icon) {
         this.time = time;

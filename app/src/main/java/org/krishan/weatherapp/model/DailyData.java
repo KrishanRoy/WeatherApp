@@ -2,11 +2,11 @@ package org.krishan.weatherapp.model;
 
 
 public class DailyData {
-    private int time;
-    private double temperatureHigh;
-    private double temperatureLow;
-    private String icon;
-    private String summary;
+    private final int time;
+    private final double temperatureHigh;
+    private final double temperatureLow;
+    private final String icon;
+    private final String summary;
 
     public DailyData(int time, double temperatureHigh, double temperatureLow, String icon, String summary) {
         this.time = time;

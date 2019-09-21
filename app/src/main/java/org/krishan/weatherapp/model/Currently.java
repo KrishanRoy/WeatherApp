@@ -1,10 +1,10 @@
 package org.krishan.weatherapp.model;
 
 public class Currently {
-    private double temperature;
-    private long time;
-    private String summary;
-    private String icon;
+    private final double temperature;
+    private final long time;
+    private final String summary;
+    private final String icon;
 
     public Currently(double temperature, long time, String summary, String icon) {
         this.temperature = temperature;

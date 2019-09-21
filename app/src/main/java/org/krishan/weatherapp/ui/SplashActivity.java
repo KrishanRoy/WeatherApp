@@ -12,10 +12,6 @@ import com.google.android.gms.maps.model.LatLng;
 import org.krishan.weatherapp.R;
 
 public class SplashActivity extends AppCompatActivity {
-    public static final String TAG = "SplashActivity";
-    public static final String LAT_KEY = "latitude";
-    public static final String LONG_KEY = "longitude";
-    private LatLng latLng;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

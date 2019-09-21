@@ -15,8 +15,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 
 public class WeatherViewModel extends AndroidViewModel {
-    private WeatherRepositoryImpl repository;
-    private CompositeDisposable disposable = new CompositeDisposable();
+    private final WeatherRepositoryImpl repository;
+    private final CompositeDisposable disposable = new CompositeDisposable();
 
     public WeatherViewModel(@NonNull Application application) {
         super(application);

@@ -4,7 +4,7 @@ A simple weather app that uses [Dark Sky](https://darksky.net/dev/docs) Api and 
 Clone the repository. Connect your device to your Pc/Mac. From the Android Studio, run the cloned project through your 
 Android device. Emulator might show some bugs. When you are not using the app, please uninstall since it charges money
 after first 1000 calls everyday.
-## Probable drawbacks and tradeoffs
+## Probable drawbacks and trade-offs
 Please turn your location on. When the app first launches, it does not have a last location, so FusedLocationProvider cannot fetch last location quickly enough.
 So it would not load the forecast. Do not worry. Close the app and restart; the app should perform fine. And if you still
 face problems, please check your device's location services. 
@@ -17,7 +17,7 @@ face problems, please check your device's location services.
 * JUnit
 * Room Database
 ## Future Implementations
-* Temperature in Celcius scale
+* Temperature in Celsius scale
 * Have a faster UI
 ## Layout Screenshots
  

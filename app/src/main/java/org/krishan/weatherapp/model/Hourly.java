@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Hourly {
     @TypeConverters(HourlyDataTypeConverter.class)
-    private List<HourlyData> data;
+    private final List<HourlyData> data;
 
     public List<HourlyData> getData() {
         return data;

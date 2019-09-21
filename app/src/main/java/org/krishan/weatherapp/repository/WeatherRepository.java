@@ -6,7 +6,7 @@ import org.krishan.weatherapp.model.ForecastModel;
 
 import io.reactivex.Single;
 
-public interface WeatherRepository {
+interface WeatherRepository {
     Single<ForecastModel> getForecastRemote(String key,
                                             double latitude,
                                             double longitude);
