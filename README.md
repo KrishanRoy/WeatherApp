@@ -1,5 +1,9 @@
 # WeatherApp
 A simple weather app that uses [Dark Sky](https://darksky.net/dev/docs) Api and shows temperature in Fahrenheit scale. It shows current weather as well as hourly forecast and eight day forecast.
+1) Using Retrofit, the app retrieves forecast details from Dark Sky API
+2) Forecast is based on user’s geolocation
+3) Caches the data in a Room database.
+4) Refreshes the data with swipe refresh layout.
 ## To run this app
 Clone the repository. Connect your device to your Pc/Mac. From the Android Studio, run the cloned project through your 
 Android device. Emulator might show some bugs. When you are not using the app, please uninstall since it charges money
