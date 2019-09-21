@@ -1,10 +1,20 @@
 package org.krishan.weatherapp.model;
 
+import androidx.annotation.NonNull;
+import androidx.room.Embedded;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
+@Entity(tableName = "ForecastModel")
 public class ForecastModel {
+    @NonNull
+    @PrimaryKey
     private String timezone;
+    @Embedded(prefix = "currently_")
     private Currently currently;
+    @Embedded(prefix = "daily_")
     private Daily daily;
+    @Embedded(prefix = "hourly_")
     private Hourly hourly;
 
 
