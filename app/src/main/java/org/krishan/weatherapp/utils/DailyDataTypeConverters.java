@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class DailyDataTypeConverters {
-    private static Gson gson = new Gson();
+    private static final Gson gson = new Gson();
 
     @TypeConverter
     public static List<DailyData> stringToList(String data) {

@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DrawableResources {
-    private Map<String, Integer> iconMap = new HashMap<>();
+    private final Map<String, Integer> iconMap = new HashMap<>();
 
     public DrawableResources() {
         putResourcesToMap();

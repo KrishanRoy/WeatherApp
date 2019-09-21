@@ -35,7 +35,7 @@ import static com.google.android.gms.location.LocationServices.getFusedLocationP
 
 public class MainActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
     private static final String TAG = "MainActivity";
-    public static final String KEY = "25cda0f29f4c03a1d58fea6d916e5970";
+    private static final String KEY = "25cda0f29f4c03a1d58fea6d916e5970";
     private WeatherViewModel viewModel;
     private TextView addressTextView, temperatureTextView, summaryTextView, maxMinTextView, currentCityTextView;
     private ImageView currentTempIcon;
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     private RecyclerView weatherRecyclerView, hourlyRecyclerView;
     private WeatherAdapter dailyAdapter;
     private HourlyWeatherAdapter hourlyAdapter;
-    private DrawableResources drawableResources = new DrawableResources();
+    private final DrawableResources drawableResources = new DrawableResources();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         setUpHourlyRecyclerView();
     }
 
-    public void getLastLocation() {
+    private void getLastLocation() {
         FusedLocationProviderClient locationClient = getFusedLocationProviderClient(this);
         locationClient
                 .getLastLocation()

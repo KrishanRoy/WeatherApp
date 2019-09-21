@@ -7,9 +7,9 @@ import org.krishan.weatherapp.utils.DailyDataTypeConverters;
 import java.util.List;
 
 public class Daily {
-    private String icon;
+    private final String icon;
     @TypeConverters(DailyDataTypeConverters.class)
-    private List<DailyData> data;
+    private final List<DailyData> data;
 
     public Daily(String icon, List<DailyData> data) {
         this.icon = icon;

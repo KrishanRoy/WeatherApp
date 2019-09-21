@@ -15,9 +15,11 @@ import org.krishan.weatherapp.utils.DrawableResources;
 import org.krishan.weatherapp.utils.StringConverterImpl;
 
 public class WeatherViewHolder extends RecyclerView.ViewHolder {
-    private TextView dayDateTextView, summaryTextView, highLowTempTextView;
-    private ImageView iconImageView;
-    private DrawableResources drawableResources = new DrawableResources();
+    private final TextView dayDateTextView;
+    private final TextView summaryTextView;
+    private final TextView highLowTempTextView;
+    private final ImageView iconImageView;
+    private final DrawableResources drawableResources = new DrawableResources();
     private StringConverterImpl stringConverter = new StringConverterImpl();
 
     public WeatherViewHolder(@NonNull View itemView) {

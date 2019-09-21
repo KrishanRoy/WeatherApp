@@ -9,13 +9,13 @@ import androidx.room.PrimaryKey;
 public class ForecastModel {
     @NonNull
     @PrimaryKey
-    private String timezone;
+    private final String timezone;
     @Embedded(prefix = "currently_")
-    private Currently currently;
+    private final Currently currently;
     @Embedded(prefix = "daily_")
-    private Daily daily;
+    private final Daily daily;
     @Embedded(prefix = "hourly_")
-    private Hourly hourly;
+    private final Hourly hourly;
 
 
     public ForecastModel(@NonNull String timezone, Currently currently, Daily daily, Hourly hourly) {
@@ -24,7 +24,7 @@ public class ForecastModel {
         this.daily = daily;
         this.hourly = hourly;
     }
-
+    @NonNull
     public String getTimezone() {
         return timezone;
     }
