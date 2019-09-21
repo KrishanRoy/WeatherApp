@@ -18,7 +18,7 @@ public class ForecastModel {
     private Hourly hourly;
 
 
-    public ForecastModel(String timezone, Currently currently, Daily daily, Hourly hourly) {
+    public ForecastModel(@NonNull String timezone, Currently currently, Daily daily, Hourly hourly) {
         this.timezone = timezone;
         this.currently = currently;
         this.daily = daily;
