@@ -32,7 +32,7 @@ import static com.google.android.gms.location.LocationServices.getFusedLocationP
 
 public class MainActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
     private static final String TAG = "MainActivity";
-    public static final String KEY = "25cda0f29f4c03a1d58fea6d916e5970";
+    public static final String KEY = "569131ae40f0a6c1ae3176aa999ae8eb";
     private WeatherViewModel viewModel;
     private TextView addressTextView, temperatureTextView, summaryTextView, maxMinTextView, currentCityTextView;
     private ImageView currentTempIcon;
